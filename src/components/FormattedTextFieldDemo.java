@@ -86,6 +86,7 @@ public class FormattedTextFieldDemo extends JPanel
                                         loan.getRate(),
                                         loan.getNumPeriods());
         
+        
         //Create the labels.
         amountLabel = new JLabel(amountString);
         rateLabel = new JLabel(rateString);
@@ -165,6 +166,15 @@ public class FormattedTextFieldDemo extends JPanel
         //Create and set up the window.
         JFrame frame = new JFrame("FormattedTextFieldDemo");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        JMenu fileMenu = new JMenu("File");
+        JMenu helpMenu = new JMenu("Help");
+        
+        JMenuBar menuBar = new JMenuBar();
+        frame.setJMenuBar(menuBar);
+        
+        menuBar.add(fileMenu);
+        menuBar.add(helpMenu);
 
         //Add contents to the window.
         frame.add(new FormattedTextFieldDemo());
