@@ -167,6 +167,10 @@ public class FormattedTextFieldDemo extends JPanel
         JFrame frame = new JFrame("FormattedTextFieldDemo");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
+        JMenuItem exitItem = new JMenuItem("Exit");
+        JMenuItem newItem = new JMenuItem("New");
+        JMenuItem aboutItem = new JMenuItem("About");
+        
         JMenu fileMenu = new JMenu("File");
         JMenu helpMenu = new JMenu("Help");
         
@@ -175,7 +179,13 @@ public class FormattedTextFieldDemo extends JPanel
         
         menuBar.add(fileMenu);
         menuBar.add(helpMenu);
-
+        
+        fileMenu.add(newItem);
+        fileMenu.addSeparator();
+        fileMenu.add(exitItem);
+        
+        helpMenu.add(aboutItem);
+        
         //Add contents to the window.
         frame.add(new FormattedTextFieldDemo());
 
