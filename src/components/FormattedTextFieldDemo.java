@@ -53,7 +53,41 @@ import model.Loan;
  */
 public class FormattedTextFieldDemo extends JPanel
                                     implements PropertyChangeListener {
-    //Values for the fields
+	
+    private static final class ExitAction extends AbstractAction {
+    	private ExitAction(String name) {
+    		super(name);
+    	}
+    	
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			System.out.println("Exit");				
+		}
+	}
+
+	private static final class NewAction extends AbstractAction {
+		private NewAction(String name) {
+			super(name);
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			System.out.println("New Opened");
+		}
+	}
+
+	private static final class AboutAction extends AbstractAction {
+		private AboutAction(String name) {
+			super(name);
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			System.out.println("About opened");
+		}
+	}
+
+	//Values for the fields
     private Loan loan = new Loan();
 
     //Labels to identify the fields
@@ -167,9 +201,12 @@ public class FormattedTextFieldDemo extends JPanel
         JFrame frame = new JFrame("FormattedTextFieldDemo");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        JMenuItem exitItem = new JMenuItem("Exit");
-        JMenuItem newItem = new JMenuItem("New");
-        JMenuItem aboutItem = new JMenuItem("About");
+        ExitAction exitAction = new ExitAction("Exit");
+		JMenuItem exitItem = new JMenuItem(exitAction);
+        NewAction newAction = new NewAction("New");
+		JMenuItem newItem = new JMenuItem(newAction);
+        AboutAction aboutAction = new AboutAction("About");
+		JMenuItem aboutItem = new JMenuItem(aboutAction);
         
         JMenu fileMenu = new JMenu("File");
         JMenu helpMenu = new JMenu("Help");
@@ -187,9 +224,9 @@ public class FormattedTextFieldDemo extends JPanel
         helpMenu.add(aboutItem);
         
         JToolBar toolbar = new JToolBar("Super Toolbar");
-        toolbar.add(new JButton("Zero"));
-        toolbar.add(new JButton("Fucks"));
-        toolbar.add(new JButton("Given"));
+        toolbar.add(new JButton(newAction));
+        toolbar.add(new JButton(aboutAction));
+        toolbar.add(new JButton(exitAction));
         toolbar.setFloatable(false);
         toolbar.setRollover(true);
         
