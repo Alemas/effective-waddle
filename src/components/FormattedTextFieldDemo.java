@@ -186,6 +186,15 @@ public class FormattedTextFieldDemo extends JPanel
         
         helpMenu.add(aboutItem);
         
+        JToolBar toolbar = new JToolBar("Super Toolbar");
+        toolbar.add(new JButton("Zero"));
+        toolbar.add(new JButton("Fucks"));
+        toolbar.add(new JButton("Given"));
+        toolbar.setFloatable(false);
+        toolbar.setRollover(true);
+        
+        frame.add(toolbar, BorderLayout.PAGE_START);
+        
         //Add contents to the window.
         frame.add(new FormattedTextFieldDemo());
 
